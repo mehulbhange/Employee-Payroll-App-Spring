@@ -1,0 +1,6 @@
+2022-10-15 23:21:13.082  INFO 12480 --- [restartedMain] c.b.e.EmployeepayrollappApplication      : Starting EmployeepayrollappApplication using Java 1.8.0_311 on Mehul with PID 12480 (E:\BridgeLabz CFP\IntelliJ\employeepayrollapp\target\classes started by mehul in E:\BridgeLabz CFP\IntelliJ\employeepayrollapp)
+2022-10-15 23:21:13.085 DEBUG 12480 --- [restartedMain] c.b.e.EmployeepayrollappApplication      : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-15 23:21:13.086  INFO 12480 --- [restartedMain] c.b.e.EmployeepayrollappApplication      : No active profile set, falling back to 1 default profile: "default"
+2022-10-15 23:21:16.546  WARN 12480 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-10-15 23:21:18.663  WARN 12480 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-15 23:21:19.122  INFO 12480 --- [restartedMain] c.b.e.EmployeepayrollappApplication      : Started EmployeepayrollappApplication in 6.626 seconds (JVM running for 8.576)
