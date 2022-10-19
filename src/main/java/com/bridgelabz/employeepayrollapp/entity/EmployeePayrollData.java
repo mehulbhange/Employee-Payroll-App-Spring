@@ -1,57 +1,38 @@
 package com.bridgelabz.employeepayrollapp.entity;
 
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDTO;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
+@Data
 public class EmployeePayrollData {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int employeeId;
     private String name;
     private long salary;
+    private String gender;
+    private LocalDate startDate;
+    private String note;
+    private String profilePic;
+    @ElementCollection
+    private List<String> departments;
 
     public EmployeePayrollData() {}
 
-    public EmployeePayrollData(int empId, EmployeePayrollDTO employeePayrollDTO)
+    public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO)
     {
-        this.employeeId = empId;
         this.name = employeePayrollDTO.name;
         this.salary = employeePayrollDTO.salary;
-    }
-
-    public EmployeePayrollData(EmployeePayrollDTO employeePayrollDTO){
-        this.name = employeePayrollDTO.name;
-        this.salary = employeePayrollDTO.salary;
-    }
-
-
-    public int getEmployeeId() {
-        return employeeId;
-    }
-
-
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(long salary) {
-        this.salary = salary;
+        this.gender = employeePayrollDTO.gender;
+        this.startDate = employeePayrollDTO.startDate;
+        this.note = employeePayrollDTO.note;
+        this.profilePic = employeePayrollDTO.profilePic;
+        this.departments = employeePayrollDTO.departments;
     }
 
 }
