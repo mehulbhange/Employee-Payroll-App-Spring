@@ -20,6 +20,8 @@ public class EmployeePayrollData {
     private String note;
     private String profilePic;
     @ElementCollection
+    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "id"))
+    @Column(name = "department")
     private List<String> departments;
 
     public EmployeePayrollData() {}

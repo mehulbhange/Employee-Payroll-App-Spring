@@ -3,6 +3,7 @@ package com.bridgelabz.employeepayrollapp.service;
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDTO;
 import com.bridgelabz.employeepayrollapp.entity.EmployeePayrollData;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IEmployeePayrollService {
@@ -15,4 +16,8 @@ public interface IEmployeePayrollService {
     EmployeePayrollData updateEmployeePayrollData(int empId,EmployeePayrollDTO empPayrollDTO);
 
     void deleteEmployeePayrollData(int empId);
+
+    List<EmployeePayrollData> getEmployeeByDepartment(String department);
+
+    List<EmployeePayrollData> getEmployeeStartedAfter(LocalDate startDate);
 }

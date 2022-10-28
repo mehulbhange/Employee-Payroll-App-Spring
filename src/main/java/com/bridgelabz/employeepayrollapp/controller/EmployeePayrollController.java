@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -58,4 +60,23 @@ public class EmployeePayrollController {
         ResponseDTO respDTO = new ResponseDTO("Deleted Successfully", "Deleted id: " +empId);
         return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
     }
+
+    @GetMapping("/getByDept/{department}")
+    public ResponseEntity<ResponseDTO> getEmployeePayrollDataByDept(@PathVariable("department") String department)
+    {
+        List<EmployeePayrollData> empDataList = null;
+        empDataList = employeePayrollService.getEmployeeByDepartment(department);
+        ResponseDTO respDTO = new ResponseDTO("Get Call Success", empDataList);
+        return new ResponseEntity<ResponseDTO> (respDTO, HttpStatus.OK);
+    }
+    @GetMapping("/getByDate")
+    public ResponseEntity<ResponseDTO> getEmployeeStartedAfter(@RequestParam String startDate){
+        List<EmployeePayrollData> empDataList = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MMM-yyyy");
+        LocalDate localDate = LocalDate.parse(startDate, formatter);
+        empDataList = employeePayrollService.getEmployeeStartedAfter(localDate);
+        ResponseDTO respDTO = new ResponseDTO("Get Call Success", empDataList);
+        return new ResponseEntity<ResponseDTO> (respDTO, HttpStatus.OK);
+    }
+
 }

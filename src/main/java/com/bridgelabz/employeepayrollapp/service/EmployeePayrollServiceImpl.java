@@ -7,6 +7,7 @@ import com.bridgelabz.employeepayrollapp.repository.EmployeePayrollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,5 +66,15 @@ public class EmployeePayrollServiceImpl implements IEmployeePayrollService{
     @Override
     public void deleteEmployeePayrollData(int empId) {
         employeePayrollRepository.deleteById(empId);
+    }
+
+    @Override
+    public List<EmployeePayrollData> getEmployeeByDepartment(String department) {
+        return employeePayrollRepository.findEmployeeByDepartment(department);
+    }
+
+    @Override
+    public List<EmployeePayrollData> getEmployeeStartedAfter(LocalDate startDate) {
+        return employeePayrollRepository.findByStartDateAfter(startDate);
     }
 }
